@@ -80,8 +80,13 @@ function draw() {
     clear();
     game.play(); 
   }
-  
-  
+  textSize(18)
+  if(turn==1){
+    fill("red")
+  }else{
+   
+ fill("#d1a30a")
+  }
    
 
   if(gameState == 2){

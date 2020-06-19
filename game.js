@@ -119,20 +119,12 @@ class Game {
 
   end() {
     background(255, 200, 200);
-    fill("red")
-    text(allPlayers["player"+1].name, 30, player1Y)
-    fill("#d1a30a")
-    text(allPlayers["player"+2].name, 30, player2Y)
-    if(turn==1){
-      fill("red")
-      text(allPlayers["player"+1].name+"  *", 30, player1Y)
-    }else{
-      fill("#d1a30a")
-      text(allPlayers["player"+2].name+"  *", 30, player2Y)
-    }
-    textSize(18)
+    
+    
     game.getMsg()
-    text(allPlayers["player"+turn].name+" "+ endMsg, 200, 50)
+    textSize(18)
+    
+    text(allPlayers["player"+turn].name+"     "+ endMsg, 200, 50)
     
     for (var i = 0; i < coins.length; i++) {
       coins[i].display()
