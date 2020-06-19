@@ -107,7 +107,7 @@ class Game {
     background(255, 200, 200);
     textSize(15)
     game.getMsg()
-    text("Player " + turn + " " + endMsg, 200, 50)
+    text(player.name + endMsg, 200, 50)
     for (var i = 0; i < coins.length; i++) {
       coins[i].display()
     }
