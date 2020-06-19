@@ -37,6 +37,8 @@ var numRow = 6
 var numCol = 7
 var speed = 1
 var numWin = 4
+var player2Y=30
+var player1Y=50
 function preload(){
   boardImg = loadImage("images/board.png")
   redImage= loadImage("images/redCoin.png")
@@ -60,6 +62,7 @@ function setup() {
   ground = new Ground(displayWidth/2,arrBoard[0][0]["y"]+30,displayWidth,10)
   
   game.getGameState();
+  
   game.getTurn();
   game.updateMsg(" ")
 }
@@ -77,6 +80,9 @@ function draw() {
     clear();
     game.play(); 
   }
+  
+  
+   
 
   if(gameState == 2){
     game.end()

@@ -118,12 +118,12 @@ function checkGameFlow() {
 
     if (allchecks(row, col)) {
       //call winning func
-      game.updateMsg("WIN")
+      game.updateMsg("wins :)")
       game.updateState(2);
       
     }
     else if (coins.length == numRow * numCol) {
-      game.updateMsg("TIE")
+      game.updateMsg("TIE *_*")
       game.updateState(2)
      
     } else {

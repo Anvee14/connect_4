@@ -1,6 +1,6 @@
 class Game {
   constructor() {
-
+  
   }
 
   getGameState() {
@@ -62,7 +62,21 @@ class Game {
 
     if (allPlayers !== undefined) {
       background(255, 200, 200);
-
+      textSize(18)
+      
+      fill("red")
+      text(allPlayers["player"+1].name, 30, player1Y)
+  
+      fill("#d1a30a")
+      text(allPlayers["player"+2].name, 30, player2Y)
+    if(turn==1){
+      fill("red")
+      text(allPlayers["player"+1].name+"  *", 30, player1Y)
+    }else{
+      fill("#d1a30a")
+      text(allPlayers["player"+2].name+"  *", 30, player2Y)
+    }
+      
       if (turn === 1 && playerState == 1) {
         var coin = new Coin(arrBoard[numRow - 1][int(numCol / 2)]["x"],
         arrBoard[numRow - 1][0]["y"] - squareSize, 59, 59)
@@ -105,9 +119,21 @@ class Game {
 
   end() {
     background(255, 200, 200);
-    textSize(15)
+    fill("red")
+    text(allPlayers["player"+1].name, 30, player1Y)
+    fill("#d1a30a")
+    text(allPlayers["player"+2].name, 30, player2Y)
+    if(turn==1){
+      fill("red")
+      text(allPlayers["player"+1].name+"  *", 30, player1Y)
+    }else{
+      fill("#d1a30a")
+      text(allPlayers["player"+2].name+"  *", 30, player2Y)
+    }
+    textSize(18)
     game.getMsg()
-    text(player.name + endMsg, 200, 50)
+    text(allPlayers["player"+turn].name+" "+ endMsg, 200, 50)
+    
     for (var i = 0; i < coins.length; i++) {
       coins[i].display()
     }

@@ -2,8 +2,8 @@ class Form{
     constructor(){
       this.nameBox = createInput("Enter Name")
       this.button = createButton("Enter")
-      this.title = createElement('h2')
-      this.greeting = createElement('h5')
+      this.title = createElement('h1')
+      this.greeting = createElement('h2')
       this.reset = createButton("resetData")
     }
     hide(){
@@ -14,9 +14,9 @@ class Form{
     }
     display(){
         this.title.html("CONNECT 4")
-        this.title.position(displayWidth/2,displayHeight/4)
-        this.nameBox.position(displayWidth/2,displayHeight/2)
-        this.button.position(displayWidth/2+100,displayHeight/2)
+        this.title.position(displayWidth/2,displayHeight/7)
+        this.nameBox.position(displayWidth/2 , displayHeight/2 - 80)
+        this.button.position(displayWidth/2 + 60, displayHeight/2)
         this.reset.position(displayWidth/2+500,displayHeight/6)
         this.reset.mousePressed(()=>{
           game.updateState(0)
@@ -34,7 +34,7 @@ class Form{
           player.update();
           player.updatePlayerCount(playerCount);
           this.greeting.html("Hello " + player.name)
-          this.greeting.position(displayWidth/2 - 70, displayHeight/4);
+          this.greeting.position(displayWidth/2 , displayHeight/4);
         });
     
     }
