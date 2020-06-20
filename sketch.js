@@ -59,7 +59,7 @@ function setup() {
   board.pushPosition()
   console.log(arrBoard)
   
-  ground = new Ground(displayWidth/2,arrBoard[0][0]["y"]+30,displayWidth,10)
+  ground = new Ground(arrBoard[numRow - 1][int(numCol / 2)]["x"],arrBoard[0][0]["y"]+40,squareSize*numCol,20)
   
   game.getGameState();
   game.getTurn();
@@ -80,7 +80,7 @@ function draw() {
     clear();
     game.play(); 
   }
-  textSize(18)
+  textSize(20)
   if(turn==1){
     fill("red")
   }else{

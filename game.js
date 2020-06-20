@@ -62,7 +62,7 @@ class Game {
 
     if (allPlayers !== undefined) {
       background(255, 200, 200);
-      textSize(18)
+      textSize(20)
       
       fill("red")
       text(allPlayers["player"+1].name, 30, player1Y)
@@ -112,9 +112,9 @@ class Game {
     for (var i = 0; i < coins.length; i++) {
       coins[i].display()
     }
-
+    ground.display()
     board.drawBoard()
-
+    
   }
 
   end() {
@@ -122,7 +122,7 @@ class Game {
     
     
     game.getMsg()
-    textSize(18)
+    textSize(20)
     
     text(allPlayers["player"+turn].name+"   "+ endMsg, 200, 50)
     
