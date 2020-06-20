@@ -62,9 +62,9 @@ function setup() {
   ground = new Ground(displayWidth/2,arrBoard[0][0]["y"]+30,displayWidth,10)
   
   game.getGameState();
-  
   game.getTurn();
-  game.updateMsg(" ")
+  game.updateMsg(" ");
+  Coin.getCoinState()
 }
 
 function draw() {
@@ -98,11 +98,39 @@ function draw() {
 function mouseClicked(){
   if(gameState==1&& turn==player.index){
  // console.log("gameState:",gameState)
-   coins[coins.length-1].droppedCol = board.getDroppedCoinCol()
+   var col= board.getDroppedCoinCol()
+   coins[coins.length-1].droppedCol = col
    coins[coins.length-1].updateCoinState()
-   checkGameFlow()
+    if (isValidCol(col)) {
+     
+      var row = board.getDroppedCoinRow(col)
+      coins[coins.length-1].droppedRow = row
+      coins[coins.length-1].updateCoinState()
+      coins[coins.length - 1].state = "Dropped"
+      
+  
+      if (allchecks(row, col)) {
+        //call winning func
+        game.updateMsg("wins :)")
+        game.updateState(2);
+        
+      }
+      else if (coins.length == numRow * numCol) {
+        game.updateMsg("TIE *_*")
+        game.updateState(2)
+       
+      } else {
+        if (turn == 1) {
+          game.updateTurn(2)
+        } else {
+          game.updateTurn(1)
+        }
+      }
+  
+    }
   }
-}
+  }
+
   
 
     

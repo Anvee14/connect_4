@@ -24,6 +24,8 @@ class Form{
           game.updateTurn(0)
           let playersRef=database.ref('players')
           playersRef.remove()
+          let coinsRef=database.ref('coinState')
+          coinsRef.remove()
         })
         this.button.mousePressed(()=>{
           this.nameBox.hide();

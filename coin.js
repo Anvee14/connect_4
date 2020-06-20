@@ -15,6 +15,8 @@ class Coin {
     this.x = this.body.position.x
     this.y = this.body.position.y
     this.droppedCol = -1
+    this.droppedRow = -1
+
 
     this.state = "notDropped"
 
@@ -30,10 +32,15 @@ class Coin {
     var coinStateRef = database.ref('coinState')
     coinStateRef.on("value", function (data) {
       coinState = data.val();
-      var col = coinState.droppedCol
-      if (col >= 0 && isValidCol(col)) {
-        Matter.Body.setStatic(coins[coins.length - 1].body, false)
+      if(gameState==1){
+        var col = coinState.droppedCol
+        var row = coinState.droppedRow
+        if (col >= 0 && row >= 0 && isValidCol(col)) {
+          Matter.Body.setStatic(coins[coins.length - 1].body, false)
+          arrBoard[row][col]["state"] = turn
+        }
       }
+     
     })
   }
 
@@ -41,7 +48,8 @@ class Coin {
     database.ref('coinState').set({
       x: this.x,
       y: this.y,
-      droppedCol: this.droppedCol
+      droppedCol: this.droppedCol,
+      droppedRow: this.droppedRow
     });
 
   }

@@ -94,7 +94,7 @@ class Game {
         coin.updateCoinState()
         coin.setImage(yellowImage)
         coins.push(coin)
-        Coin.getCoinState()
+       // Coin.getCoinState()
         playerState = 1
 
       }
@@ -124,7 +124,7 @@ class Game {
     game.getMsg()
     textSize(18)
     
-    text(allPlayers["player"+turn].name+"     "+ endMsg, 200, 50)
+    text(allPlayers["player"+turn].name+"   "+ endMsg, 200, 50)
     
     for (var i = 0; i < coins.length; i++) {
       coins[i].display()

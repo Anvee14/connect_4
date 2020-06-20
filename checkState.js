@@ -107,34 +107,3 @@ function horiCheck(row,col){
   return counter;
 }
 
-function checkGameFlow() {
-  if (gameState == 1){
-  var col=coinState.droppedCol
-  if (col>=0 && isValidCol(col)) {
-    //Matter.Body.setStatic(coins[coins.length - 1].body,false)
-    var row = board.getDroppedCoinRow(col)
-    coins[coins.length - 1].state = "Dropped"
-    arrBoard[row][col]["state"] = turn
-
-    if (allchecks(row, col)) {
-      //call winning func
-      game.updateMsg("wins :)")
-      game.updateState(2);
-      
-    }
-    else if (coins.length == numRow * numCol) {
-      game.updateMsg("TIE *_*")
-      game.updateState(2)
-     
-    } else {
-      if (turn == 1) {
-        game.updateTurn(2)
-      } else {
-        game.updateTurn(1)
-      }
-    }
-
-  }
-}
-
-}
